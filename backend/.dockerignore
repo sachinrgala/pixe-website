@@ -1,0 +1,21 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+server
+
+# Test files
+*_test.go
+coverage.out
+
+# Development
+.git
+.gitignore
+.env*
+*.log
+README.md
+
+# IDE
+.vscode
+.idea

@@ -1,0 +1,11 @@
+{
+    "slug": "home",
+    "html": "<header class=\"header-banner\" id=\"i7k9\"><div class=\"container-width\"><div class=\"logo-container\"><div class=\"logo\">Pixe</div></div><nav class=\"menu\"><div class=\"menu-item\">Home</div><div class=\"menu-item\">About</div><div class=\"menu-item\">Contact</div></nav><div class=\"clear\"></div></div></header><section class=\"flex-sect\" id=\"i85p\"><div class=\"container-width\"><div class=\"flex-title\">Build your website</div><div class=\"flex-desc\">Drag and drop to create pixel-perfect designs</div><button class=\"button\">Get Started</button></div></section>",
+    "css": "* { box-sizing: border-box; } body { margin: 0; } .header-banner{ padding-top: 35px; padding-bottom: 35px; color: #ffffff; font-family: Helvetica, serif; font-weight: 100; background-color: #2d3136; } .container-width{ width: 90%; max-width: 1150px; margin: 0 auto; } .logo-container{ float: left; width: 50%; } .logo{ background-color: #fff; border-radius: 5px; width: 130px; padding: 10px; min-height: 30px; text-align: center; line-height: 30px; color: #4d114f; font-size: 23px; } .menu{ float: right; width: 50%; } .menu-item{ float: right; font-size: 15px; color: #eee; width: 130px; padding: 10px; min-height: 50px; text-align: center; line-height: 30px; font-weight: 400; } .clear{ clear: both; } .flex-sect{ background-color: #fafafa; padding: 100px 0; font-family: Helvetica, serif; text-align: center; } .flex-title{ margin-bottom: 15px; font-size: 2em; } .flex-desc{ margin-bottom: 55px; font-size: 1em; color: rgba(0, 0, 0, 0.5); } .button{ padding: 15px 40px; background-color: #93186c; color: white; border: none; border-radius: 4px; font-size: 18px; cursor: pointer; } .button:hover{ background-color: #7a145a; }",
+    "components": [],
+    "metadata": {
+        "title": "Home"
+    },
+    "updatedAt": "2025-12-28T10:00:00.000Z",
+    "createdAt": "2025-12-28T10:00:00.000Z"
+}

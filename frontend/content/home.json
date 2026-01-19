@@ -1,0 +1,177 @@
+{
+    "content": [
+        {
+            "type": "Hero",
+            "props": {
+                "id": "Hero-1",
+                "title": "Launch your career in Digital Innovation",
+                "subtitle": "Master in-demand skills in Data Science, UX Design, and Development with a curriculum built by tech leaders.",
+                "badgeText": "New Cohort Starting Soon",
+                "backgroundImage": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2940",
+                "primaryButtonText": "Enroll Now",
+                "secondaryButtonText": "Download Brochure",
+                "showStats": true
+            }
+        },
+        {
+            "type": "Stats",
+            "props": {
+                "id": "Stats-1",
+                "stats": [
+                    {
+                        "iconName": "TrendingUp",
+                        "value": "50% Hike",
+                        "label": "Average salary increase post-certification"
+                    },
+                    {
+                        "iconName": "ShieldCheck",
+                        "value": "Globally Accredited",
+                        "label": "Recognized by ISO & Govt Bodies"
+                    }
+                ],
+                "testimonial": {
+                    "quote": "I switched from sales to UX design in just 3 months. Best decision ever!",
+                    "author": "Sarah Jenkins",
+                    "role": "Product Designer @ TechCo",
+                    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150"
+                }
+            }
+        },
+        {
+            "type": "HiringPartners",
+            "props": {
+                "id": "HiringPartners-1",
+                "title": "Top Companies Hiring Our Students",
+                "partners": [
+                    {
+                        "name": "Google",
+                        "logo": "/logos/google.svg"
+                    },
+                    {
+                        "name": "Microsoft",
+                        "logo": "/logos/microsoft.svg"
+                    },
+                    {
+                        "name": "Amazon",
+                        "logo": "/logos/amazon.svg"
+                    },
+                    {
+                        "name": "Google",
+                        "logo": "/logos/google.svg"
+                    },
+                    {
+                        "name": "Microsoft",
+                        "logo": "/logos/microsoft.svg"
+                    },
+                    {
+                        "name": "Amazon",
+                        "logo": "/logos/amazon.svg"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "ScholarshipBanner",
+            "props": {
+                "id": "ScholarshipBanner-1",
+                "badge": "Scholarship",
+                "text": "Apply by <strong>Oct 30th</strong> for a 20% Tuition Waiver on select programs.",
+                "ctaText": "View Details"
+            }
+        },
+        {
+            "type": "ProgramGrid",
+            "props": {
+                "id": "ProgramGrid-1",
+                "title": "Explore Our Programs",
+                "subtitle": "Curriculum designed by industry experts to get you job-ready from day one.",
+                "programs": [
+                    {
+                        "title": "Data Science",
+                        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+                        "popular": true,
+                        "features": [
+                            {
+                                "text": "Python & SQL Mastery"
+                            },
+                            {
+                                "text": "Machine Learning Basics"
+                            },
+                            {
+                                "text": "Live Capstone Projects"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "UX/UI Design",
+                        "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
+                        "popular": false,
+                        "features": [
+                            {
+                                "text": "User Research & Personas"
+                            },
+                            {
+                                "text": "Figma & Prototyping"
+                            },
+                            {
+                                "text": "Design Systems"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Full Stack Dev",
+                        "image": "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&q=80&w=800",
+                        "popular": false,
+                        "features": [
+                            {
+                                "text": "MERN Stack"
+                            },
+                            {
+                                "text": "Cloud Deployment"
+                            },
+                            {
+                                "text": "System Design"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "CareerQuiz",
+            "props": {
+                "id": "CareerQuiz-1",
+                "title": "Not sure which path to choose?",
+                "description": "Take our 2-minute career assessment quiz to find the perfect program based on your strengths, personality, and career goals.",
+                "ctaText": "Take Career Quiz"
+            }
+        },
+        {
+            "type": "LiveEvent",
+            "props": {
+                "id": "LiveEvent-1",
+                "badge": "Free Live Event",
+                "title": "Intro to Coding Masterclass",
+                "description": "Join us this Thursday at 7 PM EST. Learn the basics of HTML & CSS and build your first website live with an expert instructor.",
+                "ctaPrimary": "Reserve Your Seat",
+                "ctaSecondary": "View Schedule",
+                "backgroundImage": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1000"
+            }
+        },
+        {
+            "type": "SyllabusCTA",
+            "props": {
+                "id": "SyllabusCTA-1",
+                "title": "Get the Detailed Syllabus",
+                "description": "Download our comprehensive brochure to see week-by-week breakdown, tools covered, and tuition options for all our courses.",
+                "ctaText": "Download Brochure",
+                "placeholder": "Enter your email address"
+            }
+        }
+    ],
+    "root": {
+        "props": {
+            "title": "Pixe Homepage"
+        }
+    }
+}

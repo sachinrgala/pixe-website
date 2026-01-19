@@ -1,0 +1,31 @@
+{
+  "main": [
+    {
+      "id": "1",
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "id": "2",
+      "label": "About",
+      "url": "/about"
+    },
+    {
+      "id": "3",
+      "label": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "id": "1",
+      "label": "Privacy Policy",
+      "url": "/privacy"
+    },
+    {
+      "id": "2",
+      "label": "Terms",
+      "url": "/terms"
+    }
+  ]
+}

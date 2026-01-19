@@ -1,0 +1,12 @@
+{
+    "name": "verification",
+    "version": "1.0.0",
+    "description": "E2E verification scripts",
+    "main": "verify_app.mjs",
+    "scripts": {
+        "test": "node verify_app.mjs"
+    },
+    "dependencies": {
+        "puppeteer": "^23.0.0"
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "nile": {
+    "username": "",
+    "password": "",
+    "connectionUrl": "",
+    "workspace": "",
+    "databaseName": "",
+    "defaultRegion": "",
+    "apiUrl": "",
+    "postgresUrl": ""
+  },
+  "aiven": {
+    "serviceUrl": "",
+    "databaseName": "",
+    "host": "",
+    "port": "",
+    "user": "",
+    "password": "",
+    "caCertificate": "",
+    "connectionLimit": ""
+  }
+}
