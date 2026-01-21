@@ -1,0 +1,32 @@
+name: Deploy to GCP VM
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd ~/pixe-website
+            git pull origin master
+            
+            # Rebuild backend
+            cd backend
+            /usr/local/go/bin/go build -o server cmd/server/main.go
+            pm2 restart pixe-backend || pm2 start ./server --name pixe-backend
+            
+            # Rebuild frontend
+            cd ../frontend
+            npm install
+            npm run build
+            pm2 restart pixe-frontend || pm2 start npm --name pixe-frontend -- start
+            
+            echo "Deploy complete!"

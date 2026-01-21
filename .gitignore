@@ -44,3 +44,10 @@ wireframe/
 *.tmp
 temp/
 *.rpm
+
+# Deployment Artifacts
+*.tar.gz
+google-cloud-sdk/
+backend/server_linux
+frontend/frontend.tar.gz
+

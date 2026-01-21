@@ -146,7 +146,7 @@ export default function HomeLanding() {
     // Course images from wireframe
     const courseImages = [
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1611926653458-09294b3019dc?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     ];
 
@@ -378,7 +378,7 @@ export default function HomeLanding() {
                             ))}
                         </div>
 
-                        <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+                        <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory no-scrollbar pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
                             {defaultCourses.map((course, idx) => (
                                 <div key={idx} className="min-w-[80vw] sm:min-w-[70vw] md:min-w-0 snap-center group bg-white dark:bg-[#1E293B] rounded-2xl shadow-sm dark:shadow-soft hover:shadow-xl dark:hover:shadow-neon hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-[#334155] flex flex-col overflow-hidden relative h-full">
 

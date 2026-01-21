@@ -32,28 +32,33 @@ gcloud run deploy pixe-backend \
     --cpu 1 \
     --min-instances 0 \
     --max-instances 3 \
-    --timeout 60s \
-    --set-env-vars "PORT=8080"
+    --timeout 60s
+
 
 BACKEND_URL=$(gcloud run services describe pixe-backend --region $REGION --format='value(status.url)')
 echo "✅ Backend deployed: $BACKEND_URL"
 
-echo ""
-echo "🤖 Step 2: Building and deploying AI Service..."
-cd ../ai-service
-gcloud run deploy pixe-ai \
-    --source . \
-    --region $REGION \
-    --allow-unauthenticated \
-    --memory 1Gi \
-    --cpu 1 \
-    --min-instances 0 \
-    --max-instances 1 \
-    --timeout 120s \
-    --set-env-vars "PORT=8080"
-
-AI_URL=$(gcloud run services describe pixe-ai --region $REGION --format='value(status.url)')
-echo "✅ AI Service deployed: $AI_URL"
+# echo ""
+# echo "🤖 Step 2: Building and deploying AI Service..."
+# if [ -d "../ai-service" ]; then
+#     cd ../ai-service
+#     gcloud run deploy pixe-ai \
+#         --source . \
+#         --region $REGION \
+#         --allow-unauthenticated \
+#         --memory 1Gi \
+#         --cpu 1 \
+#         --min-instances 0 \
+#         --max-instances 1 \
+#         --timeout 120s
+#     
+#     AI_URL=$(gcloud run services describe pixe-ai --region $REGION --format='value(status.url)')
+#     echo "✅ AI Service deployed: $AI_URL"
+#     cd ../backend # Stay relative
+# else
+#     echo "⚠️  AI Service directory not found, skipping..."
+#     AI_URL="N/A"
+# fi
 
 echo ""
 echo "🌐 Step 3: Building and deploying Frontend..."
@@ -62,12 +67,12 @@ gcloud run deploy pixe-frontend \
     --source . \
     --region $REGION \
     --allow-unauthenticated \
-    --memory 512Mi \
+    --memory 2Gi \
     --cpu 1 \
     --min-instances 0 \
     --max-instances 3 \
     --timeout 60s \
-    --set-env-vars "NEXT_PUBLIC_API_URL=$BACKEND_URL"
+    --set-env-vars "NEXT_PUBLIC_API_URL=$BACKEND_URL,NODE_OPTIONS=--max-old-space-size=1536"
 
 FRONTEND_URL=$(gcloud run services describe pixe-frontend --region $REGION --format='value(status.url)')
 echo "✅ Frontend deployed: $FRONTEND_URL"
