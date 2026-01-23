@@ -7,12 +7,16 @@ export default function ThemeToggle() {
     const [mounted, setMounted] = useState(false);
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
+    const updateFavicon = (isDark: boolean) => {
+        const favicon = document.getElementById('favicon');
+        if (favicon) {
+            favicon.setAttribute('href', isDark ? '/pixe-icon-dark.ico' : '/pixe-icon-light.ico');
+        }
+    };
+
     useEffect(() => {
         setMounted(true);
-        // Check local storage or system preference
         const savedTheme = localStorage.getItem("theme");
-
-        // Default to dark to match wireframe design
         const initialTheme = (savedTheme === "dark" || savedTheme === "light")
             ? savedTheme
             : "dark";
@@ -21,8 +25,10 @@ export default function ThemeToggle() {
 
         if (initialTheme === "dark") {
             document.documentElement.classList.add("dark");
+            updateFavicon(true);
         } else {
             document.documentElement.classList.remove("dark");
+            updateFavicon(false);
         }
     }, []);
 
@@ -33,8 +39,10 @@ export default function ThemeToggle() {
 
         if (newTheme === "dark") {
             document.documentElement.classList.add("dark");
+            updateFavicon(true);
         } else {
             document.documentElement.classList.remove("dark");
+            updateFavicon(false);
         }
     };
 

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { PixeLogo } from "@/components/ui/PixeLogo";
 
 interface Settings {
     twitterUrl?: string;
@@ -90,9 +91,9 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 mb-12">
                     {/* Brand Column */}
                     <div className="md:col-span-2 flex flex-col gap-6">
-                        <Link href="/" className="flex items-center gap-2 text-foreground group">
-                            <span className="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">school</span>
-                            <span className="font-display font-bold text-2xl">{settings.siteTitle || "Pixe Education"}</span>
+                        <Link href="/" className="flex items-center gap-3 text-foreground group">
+                            <PixeLogo className="size-10 group-hover:scale-105 transition-transform" />
+                            <span className="font-display font-bold text-2xl text-slate-900 dark:text-white">Pixe</span>
                         </Link>
                         <p className="text-muted-foreground text-base leading-relaxed max-w-sm">
                             Empowering the next generation of digital leaders through industry-aligned education, practical skills, and global career opportunities.
@@ -220,7 +221,7 @@ export function Footer() {
                     </div>
 
                     <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-xs pt-8 border-t border-border-color/50">
-                        <p className="text-muted-foreground">© {new Date().getFullYear()} {settings.siteTitle || "Pixe Education"}. All rights reserved.</p>
+                        <p className="text-muted-foreground">© {new Date().getFullYear()} Pixe. All rights reserved.</p>
                     </div>
                 </div>
             </div>

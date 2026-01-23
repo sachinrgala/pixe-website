@@ -76,32 +76,30 @@ const BrochureForm = () => {
     );
 
     return (
-        <form onSubmit={handleDownload} className="relative max-w-lg mx-auto">
-            <div className="relative flex items-center">
-                <span className="absolute left-4 text-slate-400 material-symbols-outlined z-10">mail</span>
-                <input
-                    className="w-full pl-12 pr-4 py-4 bg-white/50 dark:bg-slate-800/50 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all font-medium shadow-sm hover:shadow-md"
-                    placeholder="Enter your email address"
-                    type="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                />
+        <form onSubmit={handleDownload} className="w-full max-w-md">
+            <div className="flex flex-col sm:flex-row gap-3">
+                <div className="relative flex-1">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined z-10 text-xl">mail</span>
+                    <input
+                        className="w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all font-medium shadow-sm"
+                        placeholder="Enter your email address"
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
                 <button
-                    className="absolute right-2 top-2 bottom-2 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap"
                     type="submit"
                     disabled={status === "submitting"}
                 >
-                    {status === "submitting" ? (
-                        <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> Sending...</span>
-                    ) : (
-                        "Download"
-                    )}
+                    {status === "submitting" ? "Sending..." : "Get Brochure"}
                 </button>
             </div>
-            <p className="text-xs text-center text-slate-400 dark:text-slate-500 mt-3 flex items-center justify-center gap-1">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                Updated for 2026 Curriculum
+            <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-3 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                Updated for 2026 Batch • Instant Delivery
             </p>
         </form>
     );
@@ -145,8 +143,8 @@ export default function HomeLanding() {
 
     // Course images from wireframe
     const courseImages = [
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1611926653458-09294b3019dc?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     ];
 
@@ -378,9 +376,9 @@ export default function HomeLanding() {
                             ))}
                         </div>
 
-                        <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory no-scrollbar pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 pb-6 md:pb-0 px-4 md:px-0">
                             {defaultCourses.map((course, idx) => (
-                                <div key={idx} className="min-w-[80vw] sm:min-w-[70vw] md:min-w-0 snap-center group bg-white dark:bg-[#1E293B] rounded-2xl shadow-sm dark:shadow-soft hover:shadow-xl dark:hover:shadow-neon hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-[#334155] flex flex-col overflow-hidden relative h-full">
+                                <div key={idx} className="group bg-white dark:bg-[#1E293B] rounded-2xl shadow-sm dark:shadow-soft hover:shadow-2xl dark:hover:shadow-neon hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden relative h-full">
 
                                     {/* Status Badge */}
                                     <div className="absolute top-4 right-4 z-20">
@@ -426,39 +424,7 @@ export default function HomeLanding() {
                     </div>
                 </section >
 
-                {/* CAREER QUIZ CTA */}
-                < section className="py-10 lg:py-20 bg-white dark:bg-[#020617] border-y border-slate-100 dark:border-[#334155]" >
-                    <div className="max-w-4xl mx-auto px-4 text-center">
-                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 mb-6 shadow-sm dark:ring-1 dark:ring-purple-500/20 animate-bounce-slow">
-                            <span className="material-symbols-outlined text-3xl">psychology_alt</span>
-                        </div>
-                        <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-4">Not sure which path to choose?</h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-                            Take our 2-minute career assessment quiz to find the perfect program based on your strengths, personality, and career goals.
-                        </p>
-                        <Link href="/career" className="inline-flex items-center justify-center py-4 px-8 bg-slate-900 dark:bg-white text-white dark:text-[#020617] font-bold rounded-full hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-                            Take Career Quiz
-                        </Link>
-                    </div>
-                </section >
 
-                {/* SCHOLARSHIP BANNER (Section 8) */}
-                <section className="bg-slate-900 dark:bg-black text-white overflow-hidden relative dark:border-b dark:border-white/5">
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 dark:opacity-20 dark:invert"></div>
-                    <div className="relative max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-                        <div>
-                            <span className="inline-flex items-center justify-center px-3 py-1 rounded bg-[#F59E0B] dark:bg-[#FBBF24] text-slate-900 text-xs font-bold uppercase tracking-wide mb-3">
-                                <span className="material-symbols-outlined text-sm mr-1">school</span> Scholarship
-                            </span>
-                            <h3 className="text-2xl font-display font-bold mb-1">Merit-Based Scholarships Available</h3>
-                            <p className="text-slate-300">Up to <span className="text-[#F59E0B] font-bold">₹15,000 off</span> for qualifying candidates who pass our aptitude test.</p>
-                        </div>
-                        <Link href="/scholarships" className="px-8 py-3.5 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-all shadow-lg shadow-white/10 whitespace-nowrap transform hover:scale-105 active:scale-95 flex items-center gap-2">
-                            Check Eligibility
-                            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                        </Link>
-                    </div>
-                </section>
 
                 {/* TESTIMONIALS (Section 9) */}
                 <section className="py-12 md:py-20 bg-slate-50 dark:bg-[#020617] border-y border-slate-200 dark:border-[#334155]">
@@ -558,8 +524,8 @@ export default function HomeLanding() {
                         </div>
                         <div className="space-y-4">
                             <div className="border border-slate-200 dark:border-[#334155] rounded-2xl p-6 bg-slate-50 dark:bg-[#1E293B]/50 hover:bg-white dark:hover:bg-[#1E293B] transition-colors">
-                                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why is Pixe Education the best digital marketing institute in India?</h3>
-                                <p className="text-slate-600 dark:text-slate-300">Pixe Education is the only institute offering an Agency-Simulation model where students manage real ad budgets and use AI tools like ChatGPT and Midjourney, ensuring practical, job-ready skills.</p>
+                                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Why is Pixe the best digital marketing institute in India?</h3>
+                                <p className="text-slate-600 dark:text-slate-300">Pixe is the only institute offering an Agency-Simulation model where students manage real ad budgets and use AI tools like ChatGPT and Midjourney, ensuring practical, job-ready skills.</p>
                             </div>
                             <div className="border border-slate-200 dark:border-[#334155] rounded-2xl p-6 bg-slate-50 dark:bg-[#1E293B]/50 hover:bg-white dark:hover:bg-[#1E293B] transition-colors">
                                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Do you offer placement support?</h3>
@@ -573,22 +539,29 @@ export default function HomeLanding() {
                     </div>
                 </section>
 
-                {/* BROCHURE DOWNLOAD */}
-                < section className="py-10 lg:py-20 bg-white dark:bg-[#1E293B] border-t border-slate-100 dark:border-[#334155]" >
-                    <div className="max-w-2xl mx-auto px-4 text-center">
-                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#2563EB] dark:text-[#60A5FA] mb-6 animate-[bounce_3s_infinite] dark:border dark:border-blue-500/20">
-                            <span className="material-symbols-outlined text-4xl">menu_book</span>
+                {/* BROCHURE DOWNLOAD / NEWSLETTER */}
+                <section className="py-12 md:py-24 bg-white dark:bg-[#020617] border-t border-slate-100 dark:border-[#334155]">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="relative p-8 md:p-12 lg:p-16 rounded-[2.5rem] bg-slate-50 dark:bg-[#1E293B] border border-slate-100 dark:border-slate-800 overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 group-hover:bg-blue-500/10 transition-colors duration-700"></div>
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-[80px] -translate-x-1/2 translate-y-1/2"></div>
+
+                            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+                                <div className="max-w-xl text-center lg:text-left">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">
+                                        <span className="material-symbols-outlined text-sm">download</span> Brochure 2026
+                                    </div>
+                                    <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Complete Curriculum & Course Roadmap</h2>
+                                    <p className="text-lg text-slate-600 dark:text-slate-400">
+                                        Get the week-by-week breakdown, tools list, and certification details directly in your inbox.
+                                    </p>
+                                </div>
+
+                                <BrochureForm />
+                            </div>
                         </div>
-                        <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-3">Get the Detailed Syllabus</h2>
-                        <p className="text-slate-600 dark:text-slate-400 mb-8">
-                            Download our comprehensive brochure to see week-by-week breakdown, tools covered, and tuition options for all our courses.
-                        </p>
-
-                        <BrochureForm />
-
-                        <p className="text-xs text-slate-400 dark:text-slate-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
                     </div>
-                </section >
+                </section>
 
                 <ExitIntentPopup
                     title="Wait! Don't leave yet."

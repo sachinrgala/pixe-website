@@ -39,6 +39,14 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
+  icons: {
+    icon: [
+      { url: '/pixe-icon.ico', type: 'image/x-icon' },
+      { url: '/pixe-icon-light.ico', media: '(prefers-color-scheme: light)', type: 'image/x-icon' },
+      { url: '/pixe-icon-dark.ico', media: '(prefers-color-scheme: dark)', type: 'image/x-icon' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 import GoogleTagManager from "@/components/GoogleTagManager";
@@ -72,35 +80,10 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Inline script to prevent FOUC - sets dark class immediately */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  // Default to dark if no preference saved
-                  if (theme === 'dark' || (!theme && true)) {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
-        {/* Preconnect to critical origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem("theme");var isDark=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(isDark)document.documentElement.classList.add("dark");var f=document.getElementById("favicon");if(f)f.href=isDark?"/pixe-icon-dark.ico":"/pixe-icon-light.ico"}catch(e){}})();` }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /><link rel="dns-prefetch" href="https://www.googletagmanager.com" /><link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-
-        {/* DNS prefetch for analytics */}
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" id="favicon" href="/pixe-icon.ico" type="image/x-icon" /><link rel="icon" href="/pixe-icon.ico" type="image/x-icon" sizes="any" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body
         className={`${inter.variable} ${lexend.variable} antialiased bg-background text-foreground transition-colors duration-300`}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/layout/ThemeToggle";
+import { PixeLogo } from "@/components/ui/PixeLogo";
 import { cityConfigs } from "@/config/cityConfig";
 
 interface NavItem {
@@ -100,11 +101,9 @@ export function Navbar() {
             >
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-10 py-3 flex items-center justify-between">
                     <div className="flex items-center gap-4 text-foreground">
-                        <Link href="/" className="flex items-center gap-4">
-                            <div className="size-8 text-primary">
-                                <span className="material-symbols-outlined text-3xl" suppressHydrationWarning>auto_awesome</span>
-                            </div>
-                            <h2 className="text-lg font-bold leading-tight tracking-[-0.015em]">Pixe Education</h2>
+                        <Link href="/" className="flex items-center gap-3">
+                            <PixeLogo className="size-10 text-primary" />
+                            <h2 className="text-xl font-display font-bold leading-tight tracking-tight text-slate-900 dark:text-white">Pixe</h2>
                         </Link>
                     </div>
 
@@ -465,10 +464,8 @@ export function Navbar() {
                     {/* Header */}
                     <div className="flex items-center justify-between p-4 border-b border-border-color">
                         <Link href="/" className="flex items-center gap-3 text-foreground" onClick={toggleMobileMenu}>
-                            <div className="size-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                                <span className="material-symbols-outlined text-primary text-2xl">auto_awesome</span>
-                            </div>
-                            <h2 className="text-lg font-bold">Pixe Education</h2>
+                            <PixeLogo className="size-10" />
+                            <h2 className="text-xl font-display font-bold text-slate-900 dark:text-white">Pixe</h2>
                         </Link>
                         <button
                             onClick={toggleMobileMenu}
