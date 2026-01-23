@@ -8,7 +8,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8080/api/v1";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  // output: "standalone", // Removed for Cloud Run Source Deploy simplicity
 
   // Enable compression (gzip/brotli)
   compress: true,
