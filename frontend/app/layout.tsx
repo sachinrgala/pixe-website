@@ -56,12 +56,20 @@ import WhatsAppGlobal from "@/components/common/WhatsAppGlobal";
 
 import ContentWrapper from "@/components/layout/ContentWrapper";
 
+import { getApiUrl } from "@/lib/api";
+
 async function getSettings() {
   try {
-    const res = await fetch("http://localhost:8080/api/v1/settings", {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    const res = await fetch(getApiUrl("/settings"), {
       next: { revalidate: 0 }, // No cache
-      cache: 'no-store'
+      cache: 'no-store',
+      signal: controller.signal
     });
+
+    clearTimeout(timeoutId);
     if (!res.ok) return null;
     return res.json();
   } catch (error) {

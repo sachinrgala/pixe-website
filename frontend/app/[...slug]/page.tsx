@@ -6,6 +6,7 @@ import DOMPurify from "isomorphic-dompurify";
 // import "@measured/puck/puck.css"; // REMOVED PUCK
 import { CourseTemplate, Course } from "@/components/templates/CourseTemplate";
 import { getSupplement } from "@/data/course_content";
+import { getApiUrl } from "@/lib/api";
 
 // Force dynamic rendering to ensure fresh data from CMS
 export const dynamic = "force-dynamic";
@@ -42,7 +43,13 @@ interface PageData {
 // Fetch helper for courses (Fall back if page not found)
 async function getCourse(slug: string): Promise<Course | null> {
     try {
-        const res = await fetch("http://localhost:8080/api/v1/courses", { cache: 'no-store' });
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const res = await fetch(getApiUrl("/courses"), {
+            cache: 'no-store',
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
         if (!res.ok) return null;
         const courses: Course[] = await res.json();
         if (!Array.isArray(courses)) return null;
@@ -67,7 +74,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const slug = slugPath.join("-");
 
     try {
-        const res = await fetch(`http://localhost:8080/api/v1/pages/${slug}`, { cache: 'no-store' });
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const res = await fetch(getApiUrl(`/pages/${slug}`), {
+            cache: 'no-store',
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
         if (!res.ok) return { title: 'Page Not Found' };
 
         const data: PageData = await res.json();
@@ -122,9 +135,13 @@ export default async function DynamicCMSPage({ params }: { params: Promise<{ slu
     // Fetch Page Content
     let pageData: PageData | null = null;
     try {
-        const res = await fetch(`http://localhost:8080/api/v1/pages/${slug}`, {
-            cache: 'no-store'
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const res = await fetch(getApiUrl(`/pages/${slug}`), {
+            cache: 'no-store',
+            signal: controller.signal
         });
+        clearTimeout(timeoutId);
 
         if (res.ok) {
             pageData = await res.json();

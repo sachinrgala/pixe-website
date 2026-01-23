@@ -5,6 +5,8 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8080/api/v1";
+
 const nextConfig: NextConfig = {
   output: "standalone",
 
@@ -139,263 +141,263 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/courses",
-        destination: "http://127.0.0.1:8080/api/v1/courses",
+        destination: `${API_BASE}/courses`,
       },
       {
         source: "/api/courses/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/courses/:path*",
+        destination: `${API_BASE}/courses/:path*`,
       },
       {
         source: "/api/stories",
-        destination: "http://127.0.0.1:8080/api/v1/stories",
+        destination: `${API_BASE}/stories`,
       },
       {
         source: "/api/stories/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/stories/:path*",
+        destination: `${API_BASE}/stories/:path*`,
       },
       {
         source: "/api/faqs",
-        destination: "http://127.0.0.1:8080/api/v1/faqs",
+        destination: `${API_BASE}/faqs`,
       },
       {
         source: "/api/faqs/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/faqs/:path*",
+        destination: `${API_BASE}/faqs/:path*`,
       },
       {
         source: "/api/partners",
-        destination: "http://127.0.0.1:8080/api/v1/partners",
+        destination: `${API_BASE}/partners`,
       },
       {
         source: "/api/partners/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/partners/:path*",
+        destination: `${API_BASE}/partners/:path*`,
       },
       {
         source: "/api/stats",
-        destination: "http://127.0.0.1:8080/api/v1/stats",
+        destination: `${API_BASE}/stats`,
       },
       {
         source: "/api/stats/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/stats/:path*",
+        destination: `${API_BASE}/stats/:path*`,
       },
       {
         source: "/api/settings",
-        destination: "http://127.0.0.1:8080/api/v1/settings",
+        destination: `${API_BASE}/settings`,
       },
       {
         source: "/api/saml/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/saml/:path*",
+        destination: `${API_BASE}/saml/:path*`,
       },
       {
         source: "/api/admin/settings",
-        destination: "http://127.0.0.1:8080/api/v1/admin/settings",
+        destination: `${API_BASE}/admin/settings`,
       },
       {
         source: "/api/admin/sync-status",
-        destination: "http://127.0.0.1:8080/api/v1/admin/sync-status",
+        destination: `${API_BASE}/admin/sync-status`,
       },
       {
         source: "/api/admin/sync-data",
-        destination: "http://127.0.0.1:8080/api/v1/admin/sync-data",
+        destination: `${API_BASE}/admin/sync-data`,
       },
       // TOTP 2FA routes
       {
         source: "/api/totp/setup",
-        destination: "http://127.0.0.1:8080/api/v1/totp/setup",
+        destination: `${API_BASE}/totp/setup`,
       },
       {
         source: "/api/totp/enable",
-        destination: "http://127.0.0.1:8080/api/v1/totp/enable",
+        destination: `${API_BASE}/totp/enable`,
       },
       {
         source: "/api/totp/disable",
-        destination: "http://127.0.0.1:8080/api/v1/totp/disable",
+        destination: `${API_BASE}/totp/disable`,
       },
       {
         source: "/api/totp/validate",
-        destination: "http://127.0.0.1:8080/api/v1/totp/validate",
+        destination: `${API_BASE}/totp/validate`,
       },
       {
         source: "/api/authors",
-        destination: "http://127.0.0.1:8080/api/v1/authors",
+        destination: `${API_BASE}/authors`,
       },
       {
         source: "/api/authors/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/authors/:path*",
+        destination: `${API_BASE}/authors/:path*`,
       },
       {
         source: "/api/posts",
-        destination: "http://127.0.0.1:8080/api/v1/posts",
+        destination: `${API_BASE}/posts`,
       },
       {
         source: "/api/posts/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/posts/:path*",
+        destination: `${API_BASE}/posts/:path*`,
       },
       {
         source: "/api/events",
-        destination: "http://127.0.0.1:8080/api/v1/events",
+        destination: `${API_BASE}/events`,
       },
       {
         source: "/api/events/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/events/:path*",
+        destination: `${API_BASE}/events/:path*`,
       },
       {
         source: "/api/corporate-leads",
-        destination: "http://127.0.0.1:8080/api/v1/corporate-leads",
+        destination: `${API_BASE}/corporate-leads`,
       },
       {
         source: "/api/corporate-leads",
-        destination: "http://127.0.0.1:8080/api/v1/corporate-leads",
+        destination: `${API_BASE}/corporate-leads`,
       },
       {
         source: "/api/corporate-leads/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/corporate-leads/:path*",
+        destination: `${API_BASE}/corporate-leads/:path*`,
       },
       {
         source: "/api/leads",
-        destination: "http://127.0.0.1:8080/api/v1/leads",
+        destination: `${API_BASE}/leads`,
       },
       {
         source: "/api/leads/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/leads/:path*",
+        destination: `${API_BASE}/leads/:path*`,
       },
       {
         source: "/api/formfields",
         has: [{ type: 'query', key: 'form' }],
-        destination: "http://127.0.0.1:8080/api/v1/formfields?form=:form",
+        destination: `${API_BASE}/formfields?form=:form`,
       },
       {
         source: "/api/formfields",
-        destination: "http://127.0.0.1:8080/api/v1/formfields",
+        destination: `${API_BASE}/formfields`,
       },
       {
         source: "/api/formfields/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/formfields/:path*",
+        destination: `${API_BASE}/formfields/:path*`,
       },
       {
         source: "/api/downloads",
-        destination: "http://127.0.0.1:8080/api/v1/downloads",
+        destination: `${API_BASE}/downloads`,
       },
       {
         source: "/api/downloads/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/downloads/:path*",
+        destination: `${API_BASE}/downloads/:path*`,
       },
       {
         source: "/api/subscribers",
-        destination: "http://127.0.0.1:8080/api/v1/subscribers",
+        destination: `${API_BASE}/subscribers`,
       },
       {
         source: "/api/downloads",
-        destination: "http://127.0.0.1:8080/api/v1/downloads",
+        destination: `${API_BASE}/downloads`,
       },
       {
         source: "/api/downloads/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/downloads/:path*",
+        destination: `${API_BASE}/downloads/:path*`,
       },
       {
         source: "/api/subscribers",
-        destination: "http://127.0.0.1:8080/api/v1/subscribers",
+        destination: `${API_BASE}/subscribers`,
       },
       {
         source: "/api/analytics",
-        destination: "http://127.0.0.1:8080/api/v1/analytics",
+        destination: `${API_BASE}/analytics`,
       },
       {
         source: "/api/analytics/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/analytics/:path*",
+        destination: `${API_BASE}/analytics/:path*`,
       },
       {
         source: "/api/ppc",
-        destination: "http://127.0.0.1:8080/api/v1/ppc",
+        destination: `${API_BASE}/ppc`,
       },
       {
         source: "/api/database/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/database/:path*",
+        destination: `${API_BASE}/database/:path*`,
       },
       {
         source: "/api/ppc/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/ppc/:path*",
+        destination: `${API_BASE}/ppc/:path*`,
       },
       // HEALTH CHECK
       {
         source: "/api/v1/health",
-        destination: "http://127.0.0.1:8080/api/v1/health",
+        destination: `${API_BASE}/health`,
       },
       // AUTH & AI
       {
         source: "/api/login",
-        destination: "http://127.0.0.1:8080/api/v1/login",
+        destination: `${API_BASE}/login`,
       },
       {
         source: "/api/ai/generate",
-        destination: "http://127.0.0.1:8080/api/v1/ai/generate",
+        destination: `${API_BASE}/ai/generate`,
       },
       // OAUTH (Google OAuth)
       {
         source: "/api/oauth/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/oauth/:path*",
+        destination: `${API_BASE}/oauth/:path*`,
       },
       // OAuth callback with /api/v1/ prefix (for Google redirect URL)
       {
         source: "/api/v1/oauth/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/oauth/:path*",
+        destination: `${API_BASE}/oauth/:path*`,
       },
       // GAP MODULES
       {
         source: "/api/media",
-        destination: "http://127.0.0.1:8080/api/v1/media",
+        destination: `${API_BASE}/media`,
       },
       {
         source: "/api/media/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/media/:path*",
+        destination: `${API_BASE}/media/:path*`,
       },
       {
         source: "/api/users",
-        destination: "http://127.0.0.1:8080/api/v1/users",
+        destination: `${API_BASE}/users`,
       },
       {
         source: "/api/users/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/users/:path*",
+        destination: `${API_BASE}/users/:path*`,
       },
       {
         source: "/api/navigation",
-        destination: "http://127.0.0.1:8080/api/v1/navigation",
+        destination: `${API_BASE}/navigation`,
       },
       {
         source: "/api/navigation/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/navigation/:path*",
+        destination: `${API_BASE}/navigation/:path*`,
       },
       {
         source: "/api/pages",
-        destination: "http://127.0.0.1:8080/api/v1/pages",
+        destination: `${API_BASE}/pages`,
       },
       {
         source: "/api/pages/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/pages/:path*",
+        destination: `${API_BASE}/pages/:path*`,
       },
       {
         source: "/api/seo",
-        destination: "http://127.0.0.1:8080/api/v1/seo",
+        destination: `${API_BASE}/seo`,
       },
       // STATIC UPLOADS
       // STATIC UPLOADS
       {
         source: "/uploads/:path*",
-        destination: "http://127.0.0.1:8080/uploads/:path*",
+        destination: `${API_BASE.replace("/api/v1", "")}/uploads/:path*`,
       },
       // LLM/GEO
       {
         source: "/llm-context",
-        destination: "http://127.0.0.1:8080/api/v1/context",
+        destination: `${API_BASE}/context`,
       },
       // META WEBHOOK
       {
         source: "/api/v1/meta/webhook",
-        destination: "http://127.0.0.1:8080/api/v1/meta/webhook",
+        destination: `${API_BASE}/meta/webhook`,
       },
       // OTP
       {
         source: "/api/otp/:path*",
-        destination: "http://127.0.0.1:8080/api/v1/otp/:path*",
+        destination: `${API_BASE}/otp/:path*`,
       },
     ];
   },
