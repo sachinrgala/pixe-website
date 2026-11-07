@@ -3,22 +3,24 @@
 import { useEffect, useState } from "react";
 import Script from "next/script";
 
+const DEFAULT_GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-5N5MKLHF";
+
 export default function GoogleTagManager() {
-    const [gtmId, setGtmId] = useState<string>("");
+    const [gtmId, setGtmId] = useState<string>(DEFAULT_GTM_ID);
 
     useEffect(() => {
+        // Optional dynamic override from settings API if configured
         fetch("/api/settings")
             .then(res => res.json())
             .then(data => {
-                if (data.googleTagManagerId) {
-                    console.log("Initializing GTM with ID:", data.googleTagManagerId);
+                if (data.googleTagManagerId && data.googleTagManagerId !== gtmId) {
                     setGtmId(data.googleTagManagerId);
-                } else {
-                    console.log("No GTM ID found in settings");
                 }
             })
-            .catch(err => console.error("Failed to load GTM ID", err));
-    }, []);
+            .catch(() => {
+                // Silently fallback to DEFAULT_GTM_ID
+            });
+    }, [gtmId]);
 
     if (!gtmId) return null;
 

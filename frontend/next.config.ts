@@ -113,7 +113,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY', // STRICT SECURITY: Prevent any iframing of the site
+            value: 'SAMEORIGIN', // STRICT SECURITY: Prevent any iframing of the site
           },
           {
             key: 'X-XSS-Protection',
@@ -125,7 +125,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://api.pixe.education " + (process.env.NODE_ENV !== 'production' ? "http://localhost:8080 http://127.0.0.1:8080" : "") + "; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://tagassistant.google.com https://*.gtm.saamvaani.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://api.pixe.education https://tagassistant.google.com https://*.gtm.saamvaani.com " + (process.env.NODE_ENV !== 'production' ? "http://localhost:8080 http://127.0.0.1:8080" : "") + "; frame-ancestors 'self' https://tagassistant.google.com; base-uri 'self'; form-action 'self';",
           },
           // SECURITY: Restrict browser features
           {
